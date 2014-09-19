@@ -1,28 +1,46 @@
-# XmlHasher
-
-[![Build Status](https://travis-ci.org/cloocher/xmlhasher.png)](https://travis-ci.org/cloocher/xmlhasher)
-[![Gem Version](https://badge.fury.io/rb/xmlhasher.png)](http://badge.fury.io/rb/xmlhasher)
+# CW_XmlHasher
 
 Fast XML to Ruby Hash converter
 
+This gem is fork of [XmlHasher](https://github.com/cloocher/xmlhasher).
+It has only one difference between original code: it does not skip attributes if only content is provided.
+
+Example:
+```ruby
+XmlHasher.parse('<tag attribute="attr_val">content</tag>')
+
+# In original XmlHasher above command will return following hash:
+{
+  tag: "content"
+}
+
+# In this fork hash will be equal:
+{
+  tag: {
+    attribute: "attr_val",
+    value: "content"
+  }
+}
+```
+
 ## Installation
 
-XmlHasher is available through [Rubygems](http://rubygems.org/gems/xmlhasher) and can be installed via:
-
+* clone this repo
+* run
+```ruby
+bundle install
+rake install
 ```
-$ gem install xmlhasher
-```
 
-or add it to your Gemfile like this:
-
-```
-gem 'xmlhasher'
+* require
+```ruby
+require 'cw_xmlhasher'
 ```
 
 ## Usage
 
 ```ruby
-require 'xmlhasher'
+require 'cw_xmlhasher'
 
 # XmlHasher global configuration
 #
@@ -52,34 +70,7 @@ XmlHasher.parse(File.new('/path/to/my/file.xml'))
 # parse XML string
 XmlHasher.parse("<tag1><tag2>content</tag2></tag1>")
 # => {:tag1=>{:tag2=>"content"}}
-
 ```
-## Benchmarks
-
-How fast is it?  Try it for yourself - [benchmark.rb](https://github.com/cloocher/xmlhasher/blob/master/benchmark/benchmark.rb)
-
-```
-Converting small xml from text to Hash:
-
-                            user     system      total        real
-activesupport(rexml)     0.380000   0.000000   0.380000 (  0.385326)
-activesupport(libxml)    0.060000   0.000000   0.060000 (  0.062008)
-activesupport(nokogiri)  0.090000   0.000000   0.090000 (  0.089466)
-xmlsimple                0.480000   0.010000   0.490000 (  0.490938)
-nori                     0.120000   0.000000   0.120000 (  0.123612)
-xmlhasher                0.010000   0.000000   0.010000 (  0.017366)
-
-Converting large xml from file to Hash:
-
-                            user     system      total        real
-activesupport(rexml)    57.230000   0.240000  57.470000 ( 57.460510)
-activesupport(libxml)   # Segmentation fault
-activesupport(nokogiri) 12.650000   0.250000  12.900000 ( 12.908073)
-xmlsimple               49.980000   0.160000  50.140000 ( 50.140775)
-nori                    15.590000   0.110000  15.700000 ( 15.697411)
-xmlhasher                4.290000   0.030000   4.320000 (  4.316379)
-```
-Note: benchmarks were generated on a Macbook Pro using Ruby 1.9.3p392
 
 ## Requirements
 
