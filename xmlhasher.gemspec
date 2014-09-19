@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'xmlhasher/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'xmlhasher'
+  spec.name          = 'cw_xmlhasher'
   spec.version       = XmlHasher::VERSION
   spec.authors       = ['Gene Drabkin']
   spec.email         = ['gene.drabkin@gmail.com']
