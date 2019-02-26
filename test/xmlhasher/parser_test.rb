@@ -186,7 +186,7 @@ class XmlhasherTest < Test::Unit::TestCase
 
   def test_attributes
     xml = %[<tag a1='1' a2='2'></tag>]
-    expected = {:tag => {:a1 => '1', :a2 => '2'}}
+    expected = {:tag => {:a1 => '1', :a2 => '2', :value => ""}}
     assert_equal expected, XmlHasher::Parser.new.parse(xml)
   end
 
@@ -219,7 +219,7 @@ class XmlhasherTest < Test::Unit::TestCase
         :snakecase => true,
     }
     xml = %[<tag attr-1='1'></tag>]
-    expected = {:tag => {:attr_1 => '1'}}
+    expected = {:tag => {:attr_1 => '1', :value => ""}}
     assert_equal expected, XmlHasher::Parser.new(options).parse(xml)
   end
 
