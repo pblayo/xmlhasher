@@ -3,7 +3,8 @@
 Fast XML to Ruby Hash converter
 
 This gem is a fork of a fork of [XmlHasher](https://github.com/cloocher/xmlhasher) (through [pawelma](https://github.com/pawelma/xmlhasher)).
-It has only one difference between original code: it does not skip attributes if only content is provided.
+Regarding the original code, there's only one difference : it does not skip attributes if only content is provided.
+I did the work to publish the gem on rubygems.org with a different name to make it available.
 
 Example:
 ```ruby
