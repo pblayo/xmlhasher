@@ -1,20 +1,20 @@
-# CW_XmlHasher
+# XmlHasher_with_attributes
 
 Fast XML to Ruby Hash converter
 
-This gem is fork of [XmlHasher](https://github.com/cloocher/xmlhasher).
+This gem is a fork of a fork of [XmlHasher](https://github.com/cloocher/xmlhasher) (through [pawelma](https://github.com/pawelma/xmlhasher)).
 It has only one difference between original code: it does not skip attributes if only content is provided.
 
 Example:
 ```ruby
 XmlHasher.parse('<tag attribute="attr_val">content</tag>')
 
-# In original XmlHasher above command will return following hash:
+# In original xmlhasher above command will return following hash:
 {
   tag: "content"
 }
 
-# In this fork hash will be equal:
+# With xmlhasher_with_attributes hash will be equal:
 {
   tag: {
     attribute: "attr_val",
@@ -34,13 +34,13 @@ rake install
 
 * require
 ```ruby
-require 'cw_xmlhasher'
+require 'xmlhasher_with_attributes'
 ```
 
 ## Usage
 
 ```ruby
-require 'cw_xmlhasher'
+require 'xmlhasher_with_attributes'
 
 # XmlHasher global configuration
 #

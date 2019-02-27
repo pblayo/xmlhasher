@@ -4,13 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'xmlhasher/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'cw_xmlhasher'
+  spec.name          = 'xmlhasher_with_attributes'
   spec.version       = XmlHasher::VERSION
-  spec.authors       = ['Gene Drabkin']
-  spec.email         = ['gene.drabkin@gmail.com']
+  spec.authors       = ['Philippe Blayo']
   spec.description   = %q{Fast XML to Ruby Hash converter}
   spec.summary       = %q{XmlHasher converts XML to Ruby Hash}
-  spec.homepage      = 'https://github.com/cloocher/xmlhasher'
+  spec.homepage      = 'https://github.com/pblayo/xmlhasher'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
