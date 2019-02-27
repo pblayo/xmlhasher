@@ -73,6 +73,16 @@ XmlHasher.parse("<tag1><tag2>content</tag2></tag1>")
 # => {:tag1=>{:tag2=>"content"}}
 ```
 
+## Publication
+```
+gem build xmlhasher_with_attributes.gemspec
+  Successfully built RubyGem
+  Name: xmlhasher_with_attributes
+  Version: 1.0.1
+  File: xmlhasher_with_attributes-1.0.1.gem
+gem push xmlhasher_with_attributes-1.0.1.gem
+```
+
 ## Requirements
 
 * Ruby 1.8.7 or higher
