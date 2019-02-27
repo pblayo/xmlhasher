@@ -11,7 +11,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter::new([
 SimpleCov.start
 
 require 'test/unit'
-require 'xmlhasher'
+require 'xmlhasher_with_attributes'
 
 def fixture_path
   File.expand_path('../fixtures', __FILE__)
